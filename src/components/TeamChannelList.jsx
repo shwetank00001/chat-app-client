@@ -5,9 +5,9 @@ const TeamChannelList = ({ children, error = false, loading, type}) => {
 
     if(error){
         return type ==='team' ? (
+            
             <div className='team-channel-list'>
-                <p className='team-channel-list__message'>Connection Error</p>
-
+                <p className='team-channel-list__message'>Connection Error !</p>
             </div>
         ) : null
     }
@@ -17,7 +17,6 @@ const TeamChannelList = ({ children, error = false, loading, type}) => {
         return(
         <div className='team-channel-list'>
             <p className='team-channel-list__message loading'>{type ==='team' ? "Channels" : "Messages"} Loading...</p>
-
         </div>
         )
     }
