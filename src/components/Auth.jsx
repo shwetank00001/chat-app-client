@@ -10,8 +10,8 @@ const Auth = () => {
 
     const [ isSignup, setIsSignup ] = useState(true)
 
-    const [ form, setForm] = useState({
-        fullname:"",
+    const [ data, setData] = useState({
+        fullName:"",
         userName:"",
         contact:"",
         avatarURL:"",
@@ -22,18 +22,18 @@ const Auth = () => {
     })
 
     function handleChange(e){
-        e.preventDefault()
-        setForm(function(item){
+        const { name, value } = e.target
+        setData(function(item){
             return {
                 ...item,
-                [e.target.name] : e.target.value
+                [name] : value
             }
         })
     }
 
     function handleSubmit(e){
         e.preventDefault()
-        console.log(form)
+        console.log(data)
     }
 
     function switchMode(){
@@ -49,46 +49,45 @@ const Auth = () => {
                     { isSignup && (
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='fullName'>Full Name</label>
-                            <input id='fullname' type='text' placeholder='Full Name' onChange={handleChange} required />
-
+                            <input id='fullName' type='text' placeholder='Full Name'  name='fullName' value={data.fullName} onChange={handleChange} required />
                         </div>
                     )}
 
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='userName'>User Name</label>
-                            <input id='userName' type='text' placeholder='User Name' onChange={handleChange} required />
-
+                            <input id='userName' type='text' placeholder='User Name' name='userName' value={data.userName} onChange={handleChange} required />
                         </div>
 
                     { isSignup && (
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='contact'>Contact</label>
-                            <input id='contact' type='text' placeholder='Contact' onChange={handleChange} required />
-
+                            <input id='contact' type='text' placeholder='Contact' name='contact' value={data.contact} onChange={handleChange} required />
                         </div>
                     )}
+
                     { isSignup && (
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='avatarURL'>Avatar URL</label>
-                            <input id='avatarURL' type='text' placeholder='Avatar URL' onChange={handleChange} required />
+                            <input id='avatarURL' type='text' placeholder='Avatar URL' name='avatarURL' value={data.avatarURL} onChange={handleChange} required />
 
                         </div>
                     )}
 
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='password'>Password</label>
-                            <input id='password' type='text' placeholder='Password' onChange={handleChange} required />
-
+                            <input id='password' type='text' placeholder='Password' name='password' value={data.password} onChange={handleChange} required />
                         </div>
 
                     { isSignup && (
                         <div className='auth__form-container_fields-content_input'>
                             <label htmlFor='confirmPassword'>Confirm Password</label>
-                            <input id='confirmPassword' type='text' placeholder='Password' onChange={handleChange} required />
+                            <input id='confirmPassword' type='text' placeholder='Password' name='confirmPassword' value={data.confirmPassword} onChange={handleChange} required />
 
                         </div>
                     )}
-                    <button>Submit</button>
+                    <div className='auth__form-container_fields-content_button'>
+                        <button>{ isSignup ? "Sign Up" : "Sign In"}</button>
+                    </div>
                 </form>
 
                 <div className='auth__form-container_fields-account'>
