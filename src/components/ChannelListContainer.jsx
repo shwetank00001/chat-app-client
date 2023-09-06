@@ -28,7 +28,7 @@ const SideBar = () => (
 
 const CompanyHeader = () => (
   <div className='channel-list__header'>
-    <p className='channel-list__header__text'>Shwetank's chat app</p>
+    <p className='channel-list__header__text'>Shwetank's Messenger app</p>
 
   </div>
 )
